@@ -92,7 +92,6 @@
 <script src="{{asset('vendor/jquery-ui/jquery-ui.min.js')}}"></script>
 <script src="{{asset('vendor/slimScroll/jquery.slimscroll.min.js')}}"></script>
 <script src="{{asset('vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-{{--<script src="{{asset('vendor/metisMenu/dist/metisMenu.min.js')}}"></script>--}}
 <script src="{{asset('vendor/jquery-flot/jquery.flot.js')}}"></script>
 <script src="{{asset('vendor/jquery-flot/jquery.flot.resize.js')}}"></script>
 <script src="{{asset('vendor/jquery-flot/jquery.flot.pie.js')}}"></script>
@@ -100,9 +99,11 @@
 <script src="{{asset('vendor/jquery.flot.spline/index.js')}}"></script>
 <script src="{{asset('vendor/iCheck/icheck.min.js')}}"></script>
 <script src="{{asset('vendor/sparkline/index.js')}}"></script>
+<script src="{{asset('/js/masonry_4.2.0/masonry.pkgd.js')}}"></script>
+{{--<script src="{{asset('/js/masonry_4.2.0/masonry.pkgd.min.js')}}"></script>--}}
 
 <!-- App scripts -->
-<script src="{{asset('js/homer.js')}}"></script>
+<script src="{{asset('js/site.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
 
 </body>

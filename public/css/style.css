@@ -1747,7 +1747,7 @@ body {
   padding: 20px;
   position: relative;
 }
-.hpanel .panel-body .small{
+.hpanel .panel-body p{
   text-align: justify;
 }
 .hpanel.panel-group .panel-body:first-child {
