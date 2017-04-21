@@ -19,6 +19,7 @@ class CreateSeasonsTable extends Migration
             $table->string('title')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
+            $table->softDeletes();
             $table->unsignedInteger('serial_id')->nullable();
 
             $table->index(["serial_id"], 'fk_seasons_1_idx');

@@ -22,6 +22,7 @@ class CreateSerialsTable extends Migration
             $table->unsignedInteger('country_id')->nullable();
             $table->unsignedInteger('genre_id')->nullable();
             $table->string('picture')->nullable();
+            $table->softDeletes();
 
             $table->index(["genre_id"], 'fk_genres_idx');
 

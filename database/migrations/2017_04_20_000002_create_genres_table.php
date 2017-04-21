@@ -17,6 +17,7 @@ class CreateGenresTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('title')->nullable();
+            $table->softDeletes();
         });
     }
 
