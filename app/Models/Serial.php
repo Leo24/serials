@@ -37,9 +37,17 @@ class Serial extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function genre()
+    public function genres()
     {
-        return $this->belongsTo('AppModels\Genre');
+        return $this->belongsToMany(Genre::class, 'serials2genres',  'serial_id', 'genre_id')->withTimestamps();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function countries()
+    {
+        return $this->belongsToMany(Country::class, 'serials2countries',  'serial_id', 'country_id')->withTimestamps();
     }
 
     /**
