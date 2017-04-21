@@ -18,6 +18,7 @@ Route::group(['middleware' => ['web']], function() {
 
     // Site routes
     Route::get('/', 'SiteController@index')->name('site.index');
+    Route::get('/serial/{serial}/show', 'SiteController@show')->name('site.show');
 
 
 

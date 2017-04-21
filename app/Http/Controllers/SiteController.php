@@ -30,8 +30,8 @@ class SiteController extends Controller
 
     public function show($id)
     {
-        return view('site.show', [
-            'data' => Serial::find($id),
+        return view('site.serial_show', [
+            'serial' => Serial::find($id),
         ]);
     }
 
