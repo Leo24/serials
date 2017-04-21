@@ -8,27 +8,26 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Юридичне бюро') }}</title>
 
     <!-- Vendor styles -->
-    <link rel="stylesheet" href="/vendor/fontawesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="/vendor/metisMenu/dist/metisMenu.css" />
-    <link rel="stylesheet" href="/vendor/animate.css/animate.css" />
-    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="/vendor/select2-3.5.2/select2.css" />
-    <link rel="stylesheet" href="/vendor/select2-bootstrap/select2-bootstrap.css" />
+    <link rel="stylesheet" href="{{asset('/vendor/fontawesome/css/font-awesome.css')}}" />
+    <link rel="stylesheet" href="{{asset('/vendor/metisMenu/dist/metisMenu.css')}}" />
+    <link rel="stylesheet" href="{{asset('/vendor/animate.css/animate.css')}}" />
+    <link rel="stylesheet" href="{{asset('/vendor/bootstrap/dist/css/bootstrap.css')}}" />
+    <link rel="stylesheet" href="{{asset('/vendor/select2-3.5.2/select2.css')}}" />
+    <link rel="stylesheet" href="{{asset('/vendor/select2-bootstrap/select2-bootstrap.css')}}" />
 
-    <link rel="stylesheet" href="/vendor/summernote/dist/summernote.css" />
-    <link rel="stylesheet" href="/vendor/summernote/dist/summernote-bs3.css" />
+    <link rel="stylesheet" href="{{asset('/vendor/summernote/dist/summernote.css')}}" />
+    <link rel="stylesheet" href="{{asset('/vendor/summernote/dist/summernote-bs3.css')}}" />
 
     <!-- App styles -->
-    <link rel="stylesheet" href="/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
-    <link rel="stylesheet" href="/fonts/pe-icon-7-stroke/css/helper.css" />
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/bootstrap-datepicker-1.6.4/css/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" href="/js/sweetalert/lib/sweet-alert.css">
-    <link rel="stylesheet" href="/js/toastr/build/toastr.min.css">
-    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="{{asset('/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css')}}" />
+    <link rel="stylesheet" href="{{asset('/fonts/pe-icon-7-stroke/css/helper.css')}}" />
+    <link rel="stylesheet" href="{{asset('/css/style.c')}}ss">
+    <link rel="stylesheet" href="{{asset('/css/bootstrap-datepicker-1.6.4/css/bootstrap-datepicker.min.c')}}ss">
+    <link rel="stylesheet" href="{{asset('/js/sweetalert/lib/sweet-alert.c')}}ss">
+    <link rel="stylesheet" href="{{asset('/js/toastr/build/toastr.min.c')}}ss">
+    <link rel="stylesheet" href="{{asset('/css/custom.c')}}ss">
 
     <!-- Scripts -->
     <script>
@@ -112,59 +111,6 @@
             </div>
         </div>
     </div>
-    <div class="p-m bg-light border-bottom border-top">
-        <span class="font-bold no-margins"> Social talks </span>
-        <br>
-        <small> Lorem Ipsum is simply dummy text of the printing simply all dummy text.</small>
-        <div class="m-t-md">
-            <div class="social-talk">
-                <div class="media social-profile clearfix">
-                    <a class="pull-left">
-                        <img src="images/a1.jpg" alt="profile-picture">
-                    </a>
-
-                    <div class="media-body">
-                        <span class="font-bold">John Novak</span>
-                        <small class="text-muted">21.03.2015</small>
-                        <div class="social-content small">
-                            Injected humour, or randomised words which don't look even slightly believable.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="social-talk">
-                <div class="media social-profile clearfix">
-                    <a class="pull-left">
-                        <img src="images/a3.jpg" alt="profile-picture">
-                    </a>
-
-                    <div class="media-body">
-                        <span class="font-bold">Mark Smith</span>
-                        <small class="text-muted">14.04.2015</small>
-                        <div class="social-content">
-                            Many desktop publishing packages and web page editors.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="social-talk">
-                <div class="media social-profile clearfix">
-                    <a class="pull-left">
-                        <img src="images/a4.jpg" alt="profile-picture">
-                    </a>
-
-                    <div class="media-body">
-                        <span class="font-bold">Marica Morgan</span>
-                        <small class="text-muted">21.03.2015</small>
-
-                        <div class="social-content">
-                            There are many variations of passages of Lorem Ipsum available, but the majority have
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="p-m">
         <span class="font-bold no-margins"> Sales in last week </span>
         <div class="m-t-xs">
@@ -201,30 +147,31 @@
 </form>
 
 <!-- Vendor scripts -->
-<script src="/vendor/jquery/dist/jquery.min.js"></script>
-<script src="/vendor/jquery-ui/jquery-ui.min.js"></script>
-<script src="/vendor/slimScroll/jquery.slimscroll.min.js"></script>
-<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/vendor/jquery-flot/jquery.flot.js"></script>
-<script src="/vendor/jquery-flot/jquery.flot.resize.js"></script>
-<script src="/vendor/jquery-flot/jquery.flot.pie.js"></script>
-<script src="/vendor/flot.curvedlines/curvedLines.js"></script>
-<script src="/vendor/jquery.flot.spline/index.js"></script>
-<script src="/vendor/metisMenu/dist/metisMenu.min.js"></script>
-<script src="/vendor/iCheck/icheck.min.js"></script>
-<script src="/vendor/peity/jquery.peity.min.js"></script>
-<script src="/vendor/sparkline/index.js"></script>
-<script src="/vendor/select2-3.5.2/select2.min.js"></script>
-<script src="/vendor/summernote/dist/summernote.min.js"></script>
+<script src="{{asset('/vendor/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('/vendor/jquery-ui/jquery-ui.min.js')}}"></script>
+<script src="{{asset('/vendor/slimScroll/jquery.slimscroll.min.js')}}"></script>
+<script src="{{asset('/vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('/vendor/jquery-flot/jquery.flot.js')}}"></script>
+<script src="{{asset('/vendor/jquery-flot/jquery.flot.resize.js')}}"></script>
+<script src="{{asset('/vendor/jquery-flot/jquery.flot.pie.js')}}"></script>
+<script src="{{asset('/vendor/flot.curvedlines/curvedLines.js')}}"></script>
+<script src="{{asset('/vendor/jquery.flot.spline/index.js')}}"></script>
+<script src="{{asset('/vendor/metisMenu/dist/metisMenu.min.js')}}"></script>
+<script src="{{asset('/vendor/iCheck/icheck.min.js')}}"></script>
+<script src="{{asset('/vendor/peity/jquery.peity.min.js')}}"></script>
+<script src="{{asset('/vendor/sparkline/index.js')}}"></script>
+<script src="{{asset('/vendor/select2-3.5.2/select2.min.js')}}"></script>
+<script src="{{asset('/vendor/summernote/dist/summernote.min.js')}}"></script>
 
 <!-- App scripts -->
-<script src="{{asset('/js/homer.js')}}"></script>
 <script src="{{asset('/js/bootstrap-datepicker-1.6.4/js/bootstrap-datepicker.min.js')}}"></script>
 <script src="{{asset('/js/jQuery-Mask-Plugin/src/jquery.mask.js')}}"></script>
 <script src="{{asset('/js/bootstrap3-typeahead.js')}}"></script>
 <script src="{{asset('/js/sweetalert/lib/sweet-alert.min.js')}}"></script>
 <script src="{{asset('/js/toastr/build/toastr.min.js')}}"></script>
 <script src="{{asset('/js/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+<script src="{{asset('/js/homer.js')}}"></script>
+
 <script>tinymce.init({
         selector: "textarea",
         height: 150,
@@ -280,8 +227,8 @@
             content: 'Test 2'
         }],
         content_css: [
-            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-            '//www.tinymce.com/css/codepen.min.css'
+//            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+//            '//www.tinymce.com/css/codepen.min.css'
         ]
     });</script>
 

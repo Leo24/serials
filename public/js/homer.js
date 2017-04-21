@@ -6,6 +6,13 @@
 
 $(document).ready(function () {
 
+    // add datepicker to company register page
+    $('#sandbox-container .input-group.date').datepicker({
+        format: "yyyy-mm-dd",
+        todayHighlight: true,
+        endDate: "today"
+    });
+
     // Add special class to minimalize page elements when screen is less than 768px
     setBodySmall();
 
@@ -211,16 +218,7 @@ $.fn['animatePanel'] = function() {
         });
     });
 
-    // add datepicker to company register page
-    $('#sandbox-container .input-group.date').datepicker({
-        format: "yyyy-mm-dd",
-        todayHighlight: true,
-        endDate: "today"
-    });
-    $('#sandbox-container2 .input-group.date').datepicker({
-        format: "yyyy-mm-dd",
-        todayHighlight: true,
-        endDate: "today"
-    });
+
+
 
 };

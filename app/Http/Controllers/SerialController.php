@@ -22,7 +22,7 @@ class SerialController extends Controller
      */
     public function index(Request $request)
     {
-        return view('site.index', [
+        return view('admin.serial.index', [
             'data' => Serial::paginate(10),
         ]);
     }
@@ -94,7 +94,7 @@ class SerialController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.article.create', [
+        return view('admin.serial.create', [
                 'serial' => Serial::find($id),
                 'genres' => Genre::get(),
                 'countries' => Country::get(),

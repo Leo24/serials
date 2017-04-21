@@ -17,7 +17,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('admin.logout');
 Route::group(['middleware' => ['web']], function() {
 
     // Site routes
-    Route::get('/', 'SerialController@index')->name('site.index');
+    Route::get('/', 'SiteController@index')->name('site.index');
 
 
 
