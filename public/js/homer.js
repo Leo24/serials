@@ -10,8 +10,10 @@ $(document).ready(function () {
     $('#sandbox-container .input-group.date').datepicker({
         format: "yyyy-mm-dd",
         todayHighlight: true,
-        endDate: "today"
     });
+
+    $(".js-source-states-2").select2();
+    $(".js-source-states-2").select2();
 
     // Add special class to minimalize page elements when screen is less than 768px
     setBodySmall();

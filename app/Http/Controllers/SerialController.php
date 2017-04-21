@@ -61,7 +61,7 @@ class SerialController extends Controller
                 }
 
                 if($input['countries']) {
-                    $serial->countries()->sync(['0' =>$input['countries']]);
+                    $serial->countries()->sync($input['countries']);
                 }
 
                 $picture = $request->file('picture');
@@ -116,10 +116,10 @@ class SerialController extends Controller
                 $serial->update($input);
 
                 if($input['genres']) {
-                    $serial->genres()->sync(['0' =>$input['genres']]);
+                    $serial->genres()->sync($input['genres']);
                 }
                 if($input['countries']) {
-                    $serial->categories()->sync($input['countries']);
+                    $serial->countries()->sync($input['countries']);
                 }
 
                 $picture = $request->file('picture');

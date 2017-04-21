@@ -28,7 +28,7 @@
 
                                 <label class="col-sm-2 control-label">{{ trans('admin.serial.content') }}</label>
                                 <div class="col-sm-10 {{ $errors->has('content') ? 'has-error' : '' }}">
-                                <textarea name="content" placeholder="{{ trans('admin.serial.title') }}" class="form-control m-b">@if(isset($serial) && isset($serial->id)) {{$serial->content}} @else {{ old('content') }} @endif</textarea>
+                                <textarea name="description" placeholder="{{ trans('admin.serial.title') }}" class="form-control m-b">@if(isset($serial) && isset($serial->id)) {{$serial->description}} @else {{ old('description') }} @endif</textarea>
                                     @if ($errors->has('content'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('title') }}</strong>
@@ -41,7 +41,7 @@
 
                                 <label class="col-sm-2 control-label">{{ trans('admin.serial.genre') }}</label>
                                 <div class="col-sm-10">
-                                    <select class="selectpicker form-control m-b" name="genres[]" multiple>
+                                    <select class="selectpicker form-control m-b js-source-states" name="genres[]" multiple>
                                     @foreach($genres as $genre)
                                             <option value="{{$genre->id}}" @if(isset($serial) && isset($serial->id)) {{(in_array($genre->id, $serial->genreList())) ? 'selected' : '' }} @endif>{{$genre->title}}</option>
                                         @endforeach
@@ -50,9 +50,9 @@
 
                                 <label class="col-sm-2 control-label">{{ trans('admin.serial.country') }}</label>
                                 <div class="col-sm-10">
-                                    <select class="selectpicker form-control m-b" name="countries[]" multiple>
+                                    <select class="selectpicker form-control m-b js-source-states-2" name="countries[]" multiple>
                                         @foreach($countries as $country)
-                                            <option value="{{$country->id}}" @if(isset($serial) && isset($serial->id)) {{(in_array($serial->id, $serial->countryList())) ? 'selected' : '' }} @endif>{{$country->name}}</option>
+                                            <option value="{{$country->id}}" @if(isset($serial) && isset($serial->id)) {{(in_array($country->id, $serial->countryList())) ? 'selected' : '' }} @endif>{{$country->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -61,7 +61,9 @@
 
                                 <div id="sandbox-container" class="col-sm-10">
                                     <div class="input-group date">
-                                        <input type="text" class="form-control m-b" name="start_date" placeholder="Start date" value="{{ old('start_date') }}"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                        <input type="text" class="form-control m-b" name="start_date"
+                                               value="@if(isset($serial) && isset($serial->id)) {{$serial->start_date}} @endif"
+                                               placeholder="Start date" value="{{ old('start_date') }}"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                                     </div>
                                 </div>
 
