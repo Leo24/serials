@@ -20,7 +20,7 @@ class CreateEpisodеSTable extends Migration
             $table->text('description')->nullable();
             $table->unsignedInteger('serial_id')->nullable();
             $table->unsignedInteger('season_id')->nullable();
-            $table->string('premiere_date')->nullable();
+            $table->date('premiere_date')->nullable();
             $table->string('picture')->nullable();
 
             $table->index(["serial_id"], 'fk_episodеs_2_idx');
