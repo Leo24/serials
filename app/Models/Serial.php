@@ -31,7 +31,7 @@ class Serial extends Model
      */
     public function country()
     {
-        return $this->belongsTo('AppModels\Country');
+        return $this->belongsTo(Country::class);
     }
 
     /**
@@ -55,6 +55,24 @@ class Serial extends Model
      */
     public function seasons()
     {
-        return $this->hasMany('AppModels\Season');
+        return $this->hasMany(Season::class);
+    }
+
+    public function genreList()
+    {
+        $genreList = [];
+        foreach ($this->genres as $genre) {
+            $genreList[] = $genre->id;
+        }
+        return $genreList;
+    }
+
+    public function countryList()
+    {
+        $countryList = [];
+        foreach ($this->countries as $country) {
+            $countryList[] = $country->id;
+        }
+        return $countryList;
     }
 }

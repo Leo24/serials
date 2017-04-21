@@ -27,6 +27,14 @@ class Season extends Model
      */
     public function serial()
     {
-        return $this->belongsTo('AppModels\Serial');
+        return $this->belongsTo(Serial::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function episods()
+    {
+        return $this->hasMany(Episod::class);
     }
 }

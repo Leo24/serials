@@ -22,6 +22,6 @@ class Genre extends Model
      */
     public function serials()
     {
-        return $this->hasMany('AppModels\Serial');
+        return $this->hasMany(Serial::class);
     }
 }

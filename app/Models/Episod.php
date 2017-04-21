@@ -34,16 +34,16 @@ class Episod extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function season()
-    {
-        return $this->belongsTo('AppModels\Season');
-    }
+//    public function season()
+//    {
+//        return $this->belongsTo(Season::class, 'season_id' ,'id');
+//    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function serial()
     {
-        return $this->belongsTo('AppModels\Serial');
+        return $this->belongsTo(Serial::class, 'serial_id', 'id');
     }
 }
