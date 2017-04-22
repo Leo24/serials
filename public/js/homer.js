@@ -10,6 +10,7 @@ $(document).ready(function () {
     $('#sandbox-container .input-group.date').datepicker({
         format: "yyyy-mm-dd",
         todayHighlight: true,
+        startDate: 'today'
     });
 
     $(".js-source-states").select2();

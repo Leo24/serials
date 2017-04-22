@@ -7,14 +7,39 @@
                 <div class="hpanel">
 
                     <div class="panel-body">
+
+
+
+                            <div class="row">
+                                <div class="col-md-12 m-b">
+                                    @if(isset($serial) && isset($serial->id))
+                                        <h3 class="text-center ">{{ trans('admin.serial.edit_title') }}</h3>
+                                        <div class="col-md-5 m-b pull-right">
+                                            <a href="{{ route('admin.season.create') }}" class="btn w-xs btn-primary">
+                                                <i class="fa fa-plus"></i>
+                                                <span class="bold">{{ trans('admin.season.button_create_title') }}</span>
+                                            </a>
+                                            <a href="{{ route('admin.episode.create') }}" class="btn w-xs btn-info">
+                                                <i class="fa fa-plus"></i>
+                                                <span class="bold">{{ trans('admin.episode.button_create_title') }}</span>
+                                            </a>
+                                            <a href="{{ route('admin.seasons.index', ['id' => $serial->id]) }}" class="btn w-xs btn-success">
+                                                <i class="fa fa-plus"></i>
+                                                <span class="bold">{{ trans('admin.serial.button_view_seasons_list') }}</span>
+                                            </a>
+                                        </div>
+                                    @else
+                                        <h3 class="text-center ">{{ trans('admin.serial.create_title') }}</h3>
+                                    @endif
+                                </div>
+
+                            </div>
+
+
                         <form method="POST" action="@if(isset($serial) && isset($serial->id)) {{ route('admin.serial.update', $serial->id) }} @else {{ route('admin.serial.create') }} @endif" enctype="multipart/form-data" class="form-horizontal" novalidate>
                             {{ csrf_field() }}
 
-                            @if(isset($serial) && isset($serial->id))
-                                <h3 class="text-center m-b">{{ trans('admin.serial.edit_title') }}</h3>
-                            @else
-                                <h3 class="text-center m-b">{{ trans('admin.serial.create_title') }}</h3>
-                            @endif
+                            <input type="hidden" name="id" value="@if(isset($serial) && isset($serial->id)) {{ $serial->id }}@endif">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">{{ trans('admin.serial.title') }}</label>
                                 <div class="col-sm-10 m-b {{ $errors->has('title') ? 'has-error' : '' }}">

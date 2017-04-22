@@ -32,7 +32,7 @@ Route::group(['middleware' => ['web']], function() {
 
         Route::get('serials', 'SerialController@index')->name('admin.serial.index');
         Route::any('serials/create', 'SerialController@create')->name('admin.serial.create');
-        Route::post('serial/{serial}/update', 'SerialController@update')->name('admin.serial.update');
+        Route::post('serial/{serial}/update', 'SerialController@create')->name('admin.serial.update');
         Route::get('serial/{serial}/edit', 'SerialController@edit')->name('admin.serial.edit');
         Route::post('serial/{serial}/delete', 'SerialController@delete')->name('admin.serial.delete');
         Route::get('serial/{serial}/remove-picture', 'SerialController@removePicture')->name('serial.remove.picture');
@@ -43,9 +43,9 @@ Route::group(['middleware' => ['web']], function() {
          * Seasons
          */
 
-        Route::get('seasons', 'SeasonController@index')->name('admin.season.index');
+        Route::get('seasons/{serial}/list', 'SeasonController@index')->name('admin.seasons.index');
         Route::any('season/create', 'SeasonController@create')->name('admin.season.create');
-        Route::post('season/{season}/update', 'SeasonController@update')->name('admin.season.update');
+        Route::post('season/{season}/update', 'SeasonController@create')->name('admin.season.update');
         Route::get('season/{season}/edit', 'SeasonController@edit')->name('admin.season.edit');
         Route::post('season/{season}/delete', 'SeasonController@delete')->name('admin.season.delete');
         Route::get('season/{season}/remove-picture', 'SeasonController@removePicture')->name('season.remove.picture');
@@ -56,9 +56,9 @@ Route::group(['middleware' => ['web']], function() {
          * Episodes
          */
 
-        Route::get('episodes', 'EpisodeController@index')->name('admin.episode.index');
-        Route::any('episode/create', 'EEisodeController@create')->name('admin.episode.create');
-        Route::post('episode/{episode}/update', 'EpisodeController@update')->name('admin.episode.update');
+        Route::get('episodes/{season}', 'EpisodeController@index')->name('admin.episode.index');
+        Route::any('episode/create', 'EpisodeController@create')->name('admin.episode.create');
+        Route::post('episode/{episode}/update', 'EpisodeController@create')->name('admin.episode.update');
         Route::get('episode/{episode}/edit', 'EpisodeController@edit')->name('admin.episode.edit');
         Route::post('episode/{episode}/delete', 'EpisodeController@delete')->name('admin.episode.delete');
 

@@ -645,7 +645,7 @@ select#currency-code{
   margin: 0; padding: 0;
 }
 body {
-  font-size: 100%;
+  /*font-size: 100%;*/
 }
 .accordion {
   width: 80%;

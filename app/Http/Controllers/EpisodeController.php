@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Response;
 
-class SerialController extends Controller
+class SeasonController extends Controller
 {
 
     /**
@@ -54,12 +54,7 @@ class SerialController extends Controller
                         ->withInput($input);
                 }
 
-                if(empty($input['id'])){
-                    $serial = Serial::create($input);
-                } else {
-                    $serial = Serial::find($input['id']);
-                    $serial->update($input);
-                }
+                $serial = Serial::create($input);
 
                 if(!empty($input['genres'])) {
                     $serial->genres()->sync($input['genres']);
@@ -105,6 +100,36 @@ class SerialController extends Controller
                 'countries' => Country::get(),
             ]
         );
+    }
+
+    public function update($id, Request $request)
+    {
+        if($request->isMethod('post')){
+            $input = $request->all();
+            if ($request->all()) {
+                $validator = $this->validator($input);
+                if ($validator->fails()) {
+                    return back()->withErrors($validator);
+                }
+
+                $serial = Serial::find($id);
+                $serial->update($input);
+
+                if(!empty($input['genres'])) {
+                    $serial->genres()->sync($input['genres']);
+                }
+                if(!empty($input['countries'])) {
+                    $serial->countries()->sync($input['countries']);
+                }
+
+                $picture = $request->file('picture');
+                if($picture) {
+                    $serial->update(['picture' => $picture->store('pictures', 'public')]);
+                }
+
+                return back()->with('success', Lang::get('admin.serial.updated'));
+            }
+        }
     }
 
     public function removePicture($id) {
