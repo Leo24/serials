@@ -31,13 +31,13 @@ class CreateEpisodеSTable extends Migration
 
             $table->foreign('season_id', 'fk_episodеs_1_idx')
                 ->references('id')->on('seasons')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->foreign('serial_id', 'fk_episodеs_2_idx')
                 ->references('id')->on('serials')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

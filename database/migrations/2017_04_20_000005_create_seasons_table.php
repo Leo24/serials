@@ -28,8 +28,8 @@ class CreateSeasonsTable extends Migration
 
             $table->foreign('serial_id', 'fk_seasons_1_idx')
                 ->references('id')->on('serials')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
