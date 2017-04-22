@@ -659,20 +659,20 @@ body {
 }
 .accordion h1 {
   padding: 15px 20px;
-  background-color: #333;
+  /*background-color: #F7F9FA;*/
   font-family: Lobster;
   font-size: 3.5rem;
   font-weight: normal;
-  color: #1abc9c;
+  color: #6a6c6f;
 }
-.accordion h1:hover {
-  color: #4afcdc;
-}
+/*.accordion h1:hover {*/
+  /*color: #4afcdc;*/
+/*}*/
 .accordion h1:first-child {
   border-radius: 10px 10px 0 0;
 }
 .accordion h1:last-of-type {
-  border-radius: 0 0 10px 10px;
+  border-radius: 0;
 }
 .accordion h1:not(:last-of-type) {
   border-bottom: 1px dotted #1abc9c;
@@ -683,7 +683,8 @@ body {
 .accordion h2 {
   padding: 5px 25px;
   background-color: #1abc9c;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  line-height: 2em;
   color: #333;
 }
 .accordion h2:hover {
@@ -702,6 +703,8 @@ body {
   padding: 5px 35px;
   background-color: #ffc25a;
   font-size: 1.5rem;
+  line-height: 2em;
+
   color: #af720a;
 }
 .accordion h4:hover {

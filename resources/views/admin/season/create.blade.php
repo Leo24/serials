@@ -10,9 +10,9 @@
                             <div class="row">
                                 <div class="col-md-8 m-b">
                                     @if(isset($season) && isset($season->id))
-                                        <h3 class="text-center ">{{ trans('admin.season.edit_title') }}</h3>
+                                        <h3 class="text-center ">{{ trans('admin.season.edit_title') }} {{$season->serial->title}}</h3>
                                         <div class="col-md-2 m-b">
-                                            <a href="{{ route('admin.episode.create') }}" class="btn w-xs btn-info">
+                                            <a href="{{ route('admin.episode.create', ['id' => $season->id]) }}" class="btn w-xs btn-info">
                                                 <i class="fa fa-plus"></i>
                                                 <span class="bold">{{ trans('admin.episode.button_create_title') }}</span>
                                             </a>

@@ -14,16 +14,8 @@
                                 <div class="col-md-12 m-b">
                                     @if(isset($serial) && isset($serial->id))
                                         <h3 class="text-center ">{{ trans('admin.serial.edit_title') }}</h3>
-                                        <div class="col-md-5 m-b pull-right">
-                                            <a href="{{ route('admin.season.create') }}" class="btn w-xs btn-primary">
-                                                <i class="fa fa-plus"></i>
-                                                <span class="bold">{{ trans('admin.season.button_create_title') }}</span>
-                                            </a>
-                                            <a href="{{ route('admin.episode.create') }}" class="btn w-xs btn-info">
-                                                <i class="fa fa-plus"></i>
-                                                <span class="bold">{{ trans('admin.episode.button_create_title') }}</span>
-                                            </a>
-                                            <a href="{{ route('admin.seasons.index', ['id' => $serial->id]) }}" class="btn w-xs btn-success">
+                                        <div class="col-md-2 m-b pull-right">
+                                            <a href="{{ route('admin.seasons.index', ['id' => $serial->id]) }}" class="btn w-xs btn-primary">
                                                 <i class="fa fa-plus"></i>
                                                 <span class="bold">{{ trans('admin.serial.button_view_seasons_list') }}</span>
                                             </a>

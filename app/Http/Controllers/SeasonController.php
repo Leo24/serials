@@ -70,7 +70,7 @@ class SeasonController extends Controller
                     $season->update(['picture' => $picture->store('pictures', 'public')]);
                 }
 
-                return redirect(route('admin.serial.edit', ['id' => $input['serial_id']]))->with('success', Lang::get('admin.season.created'));
+                return redirect(route('admin.seasons.index', ['id' => $input['serial_id']]))->with('success', Lang::get('admin.season.created'));
             }
         }
         return view('admin.season.create', [

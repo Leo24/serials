@@ -18,7 +18,6 @@
                     </div>
                 @endif
                 <div class="panel-body">
-                    {{trans('admin.content_block')}}
                 </div>
             </div>
         </div>
