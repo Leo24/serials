@@ -2,9 +2,7 @@
 
 return [
     'title' => 'Admin panel',
-    'admin_panel' => 'Интерфейс администратора',
     'home' => [
-        'title' => 'Главная страницы',
     ],
     'dashboard' => [
         'serials'    => 'Serials',
