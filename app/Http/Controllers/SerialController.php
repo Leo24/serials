@@ -56,9 +56,11 @@ class SerialController extends Controller
 
                 if(empty($input['id'])){
                     $serial = Serial::create($input);
+                    $message = 'admin.serial.created';
                 } else {
                     $serial = Serial::find($input['id']);
                     $serial->update($input);
+                    $message = 'admin.serial.updated';
                 }
 
                 if(!empty($input['genres'])) {
@@ -74,12 +76,11 @@ class SerialController extends Controller
                     $serial->update(['picture' => $picture->store('pictures', 'public')]);
                 }
 
-                return redirect('/admin/serials')->with('success', Lang::get('admin.serial.created'));
+                return redirect('/admin/serials')->with('success', Lang::get($message));
             }
         }
         return view('admin.serial.create', [
-            'genres' => Genre::get(),
-            'countries' => Country::get(),
+            'serial' => Serial::get(),
         ]);
     }
 

@@ -52,9 +52,11 @@ class SeasonController extends Controller
 
                 if(empty($input['id'])){
                     $season = Season::create($input);
+                    $message = 'admin.season.created';
                 } else {
                     $season = Season::find($input['id']);
                     $season->update($input);
+                    $message = 'admin.season.updated';
                 }
 
                 if(!empty($input['genres'])) {
@@ -69,7 +71,7 @@ class SeasonController extends Controller
                 if($picture) {
                     $season->update(['picture' => $picture->store('pictures', 'public')]);
                 }
-                return redirect(route('admin.seasons.index', ['id' => $input['serial_id']]))->with('success', Lang::get('admin.season.created'));
+                return redirect(route('admin.seasons.index', ['id' => $input['serial_id']]))->with('success', Lang::get($message));
             }
         }
 

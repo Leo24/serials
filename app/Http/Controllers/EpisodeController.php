@@ -53,9 +53,11 @@ class EpisodeController extends Controller
 
                 if(empty($input['id'])){
                     $episode = Episod::create($input);
+                    $message = 'admin.episode.created';
                 } else {
                     $episode = Episod::find($input['id']);
                     $episode->update($input);
+                    $message = 'admin.episode.updated';
                 }
 
                 if(!empty($input['genres'])) {
@@ -71,7 +73,7 @@ class EpisodeController extends Controller
                     $episode->update(['picture' => $picture->store('pictures', 'public')]);
                 }
 
-                return redirect(route('admin.seasons.index', ['serialId' => $input['serial_id'] ]))->with('success', Lang::get('admin.episode.created'));
+                return redirect(route('admin.seasons.index', ['serialId' => $input['serial_id'] ]))->with('success', Lang::get($message));
             }
         }
         $query = $request->query();
