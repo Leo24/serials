@@ -2776,6 +2776,9 @@ h6 {
 .form-control {
   border-color: #e4e5e7 !important;
 }
+textarea.form-control {
+  min-height: 200px;
+}
 .input-group-addon {
   background: #fafbfc;
   border-color: #e4e5e7 !important;
