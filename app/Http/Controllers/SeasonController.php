@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\Genre;
+use App\Models\Season;
 use App\Models\Serial;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -13,27 +15,21 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Response;
 
-class SerialController extends Controller
+class SeasonController extends Controller
 {
 
     /**
-     * @param Request $request
+     * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index($id)
     {
-        return view('admin.serial.index', [
-            'data' => Serial::paginate(10),
+        return view('admin.season.index', [
+            'data' => Season::where('serial_id', $id )->paginate(10),
+            'serial' => Serial::find($id)
         ]);
     }
 
-
-    public function show($id)
-    {
-        return view('site.show', [
-            'data' => Serial::find($id),
-        ]);
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -49,30 +45,35 @@ class SerialController extends Controller
             if (!empty($input)) {
                 $validator = $this->validator($input);
                 if ($validator->fails()) {
-                    return redirect('/admin/serial/create')
+                    return redirect('/admin/season/create')
                         ->withErrors($validator)
                         ->withInput($input);
                 }
 
-                $serial = Serial::create($input);
+                if(empty($input['id'])){
+                    $season = Season::create($input);
+                } else {
+                    $season = Season::find($input['id']);
+                    $season->update($input);
+                }
 
                 if(!empty($input['genres'])) {
-                    $serial->genres()->sync($input['genres']);
+                    $season->genres()->sync($input['genres']);
                 }
 
                 if(!empty($input['countries'])) {
-                    $serial->countries()->sync($input['countries']);
+                    $season->countries()->sync($input['countries']);
                 }
 
                 $picture = $request->file('picture');
                 if($picture) {
-                    $serial->update(['picture' => $picture->store('pictures', 'public')]);
+                    $season->update(['picture' => $picture->store('pictures', 'public')]);
                 }
 
-                return redirect('/admin/serials')->with('success', Lang::get('admin.serial.created'));
+                return redirect(route('admin.serial.edit', ['id' => $input['serial_id']]))->with('success', Lang::get('admin.season.created'));
             }
         }
-        return view('admin.serial.create', [
+        return view('admin.season.create', [
             'genres' => Genre::get(),
             'countries' => Country::get(),
         ]);
@@ -94,60 +95,32 @@ class SerialController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.serial.create', [
-                'serial' => Serial::find($id),
+        return view('admin.season.create', [
+                'season' => Season::find($id),
                 'genres' => Genre::get(),
                 'countries' => Country::get(),
             ]
         );
     }
 
-    public function update($id, Request $request)
-    {
-        if($request->isMethod('post')){
-            $input = $request->all();
-            if ($request->all()) {
-                $validator = $this->validator($input);
-                if ($validator->fails()) {
-                    return back()->withErrors($validator);
-                }
 
-                $serial = Serial::find($id);
-                $serial->update($input);
-
-                if(!empty($input['genres'])) {
-                    $serial->genres()->sync($input['genres']);
-                }
-                if(!empty($input['countries'])) {
-                    $serial->countries()->sync($input['countries']);
-                }
-
-                $picture = $request->file('picture');
-                if($picture) {
-                    $serial->update(['picture' => $picture->store('pictures', 'public')]);
-                }
-
-                return back()->with('success', Lang::get('admin.serial.updated'));
-            }
-        }
-    }
 
     public function removePicture($id) {
-        $serial = Serial::find($id);
-        $file = $serial->picture;
+        $season = Season::find($id);
+        $file = $season->picture;
         $exists = Storage::disk('public')->exists($file);
 
         if ($exists == true){
             Storage::disk('public')->delete($file);
-            $serial->update(['picture' => null]);
-            return back()->with('success', 'Изображение удалено.');
+            $season->update(['picture' => null]);
+            return back()->with('success', 'Picture removed.');
         }
-        return back()->with('warning', 'Ошибка при удалении изображения.');
+        return back()->with('warning', 'Error while removing picture.');
     }
 
     public function delete($id){
-        Serial::find($id)->delete();
-        return back()->with('success', Lang::get('Serial deleted'));
+        Season::find($id)->delete();
+        return back()->with('success', Lang::get('season deleted'));
     }
 
 
