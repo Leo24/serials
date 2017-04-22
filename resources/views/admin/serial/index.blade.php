@@ -16,7 +16,7 @@
 
                             <a href="{{ route('admin.serial.create') }}" class="btn w-xs btn-success">
                                 <i class="fa fa-plus"></i>
-                                <span class="bold">{{ trans('admin.serial.create') }}</span>
+                                <span class="bold">{{ trans('admin.serial.button_create_title') }}</span>
                             </a>
 
                         </div>

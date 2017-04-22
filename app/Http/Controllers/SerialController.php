@@ -56,11 +56,11 @@ class SerialController extends Controller
 
                 $serial = Serial::create($input);
 
-                if($input['genres']) {
+                if(!empty($input['genres'])) {
                     $serial->genres()->sync($input['genres']);
                 }
 
-                if($input['countries']) {
+                if(!empty($input['countries'])) {
                     $serial->countries()->sync($input['countries']);
                 }
 
@@ -69,7 +69,7 @@ class SerialController extends Controller
                     $serial->update(['picture' => $picture->store('pictures', 'public')]);
                 }
 
-                return redirect('/admin/serials')->with('success', Lang::get('Serial created'));
+                return redirect('/admin/serials')->with('success', Lang::get('admin.serial.created'));
             }
         }
         return view('admin.serial.create', [
@@ -115,10 +115,10 @@ class SerialController extends Controller
                 $serial = Serial::find($id);
                 $serial->update($input);
 
-                if($input['genres']) {
+                if(!empty($input['genres'])) {
                     $serial->genres()->sync($input['genres']);
                 }
-                if($input['countries']) {
+                if(!empty($input['countries'])) {
                     $serial->countries()->sync($input['countries']);
                 }
 
@@ -127,7 +127,7 @@ class SerialController extends Controller
                     $serial->update(['picture' => $picture->store('pictures', 'public')]);
                 }
 
-                return back()->with('success', Lang::get('Serial updated'));
+                return back()->with('success', Lang::get('admin.serial.updated'));
             }
         }
     }

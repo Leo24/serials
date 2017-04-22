@@ -12,7 +12,7 @@ $(document).ready(function () {
         todayHighlight: true,
     });
 
-    $(".js-source-states-2").select2();
+    $(".js-source-states").select2();
     $(".js-source-states-2").select2();
 
     // Add special class to minimalize page elements when screen is less than 768px
