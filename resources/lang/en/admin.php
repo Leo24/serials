@@ -29,9 +29,10 @@ return [
 
     'season' => [
         'create_title' => 'Create season',
-        'edit_title' => 'Edit season',
+        'edit_title' => 'Edit season of ',
         'page_title' => 'Seasons List for ',
         'title' => 'Season title',
+        'edit' => 'Season edit',
         'content' => 'Description',
         'created_at' => 'Created at',
         'picture' => 'Picture',
@@ -42,10 +43,11 @@ return [
     ],
 
     'episode' => [
-        'create_title' => 'Create episode',
-        'edit_title' => 'Edit episode',
+        'create_title' => 'Create episode for',
+        'edit_title' => 'Edit episode of',
         'name' => 'Episodes',
         'title' => 'Episode title',
+        'edit' => 'Episode edit',
         'content' => 'Description',
         'picture' => 'Picture',
         'delete_success' => 'Episode deleted',

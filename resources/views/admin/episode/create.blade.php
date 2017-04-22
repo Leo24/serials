@@ -21,8 +21,8 @@
                             {{ csrf_field() }}
 
                             <input type="hidden" name="id" value="@if(isset($episode) && isset($episode->id)) {{ $episode->id }}@endif">
-                            <input type="hidden" name="serial_id" value="@if(isset($episode) && isset($episode->id)) {{ $episode->serial->id }}@endif">
-                            <input type="hidden" name="season_id" value="@if(isset($episode) && isset($episode->id)) {{ $episode->season->id }}@endif">
+                            <input type="hidden" name="serial_id" value="@if(isset($serial) && isset($serial->id)) {{ $serial->id }}@endif">
+                            <input type="hidden" name="season_id" value="@if(isset($season) && isset($season->id)) {{ $season->id }}@endif">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">{{ trans('admin.episode.title') }}</label>
                                 <div class="col-sm-10 m-b {{ $errors->has('title') ? 'has-error' : '' }}">

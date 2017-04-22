@@ -35,9 +35,9 @@
                             <thead>
                             <tr>
                                 <th>#ID</th>
-                                <th>{{ trans('serial.title') }}</th>
-                                <th>{{ trans('serial.created') }}</th>
-                                <th>{{ trans('serial.action') }}</th>
+                                <th>{{ trans('admin.serial.title') }}</th>
+                                <th>{{ trans('admin.serial.created_at') }}</th>
+                                <th>{{ trans('admin.serial.action') }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -66,9 +66,6 @@
                         {!! $data->render() !!}
                         @endif
                     </div>
-                </div>
-                <div class="panel-footer">
-                    {{ trans('admin.table.footer.table') }} - {{ trans('admin.table.footer.doc') }} ({{ count($data) }})
                 </div>
             </div>
         </div>

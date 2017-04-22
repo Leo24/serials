@@ -11,7 +11,7 @@
                         <h4>{{$episode->title}}</h4>
                         <p>
                             <img class="img-thumbnail" src="{{ asset('storage/'.$episode->picture) }}" alt="{{$episode->title}}" />
-                            <span>{{$episode->description}}</span>
+                            <span>{!!$episode->description !!}</span>
                         </p>
                     @endforeach
                 </div>
