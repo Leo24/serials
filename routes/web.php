@@ -32,7 +32,7 @@ Route::group(['middleware' => ['web']], function() {
 
         Route::get('serials', 'SerialController@index')->name('admin.serial.index');
         Route::any('serials/create', 'SerialController@create')->name('admin.serial.create');
-        Route::post('serial/{serial}/update', 'SerialController@update')->name('admin.serial.update');
+        Route::post('serial/{serial}/update', 'SerialController@create')->name('admin.serial.update');
         Route::get('serial/{serial}/edit', 'SerialController@edit')->name('admin.serial.edit');
         Route::post('serial/{serial}/delete', 'SerialController@delete')->name('admin.serial.delete');
         Route::get('serial/{serial}/remove-picture', 'SerialController@removePicture')->name('serial.remove.picture');
