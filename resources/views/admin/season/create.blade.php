@@ -27,7 +27,7 @@
                             {{ csrf_field() }}
 
                             <input type="hidden" name="id" value="@if(isset($season) && isset($season->id)) {{ $season->id }}@endif">
-                            <input type="hidden" name="serial_id" value="@if(isset($season) && isset($season->id)) {{ $season->serial->id }}@endif">
+                            <input type="hidden" name="serial_id" value="@if(isset($serial) && isset($serial->id)) {{ $serial->id }}@endif">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">{{ trans('admin.season.title') }}</label>
                                 <div class="col-sm-10 m-b {{ $errors->has('title') ? 'has-error' : '' }}">

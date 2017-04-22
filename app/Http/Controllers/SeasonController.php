@@ -45,7 +45,7 @@ class SeasonController extends Controller
             if (!empty($input)) {
                 $validator = $this->validator($input);
                 if ($validator->fails()) {
-                    return redirect('/admin/season/create')
+                    return redirect(route('admin.season.create', ['serialId' => $input['serialId']]))
                         ->withErrors($validator)
                         ->withInput($input);
                 }
@@ -69,17 +69,17 @@ class SeasonController extends Controller
                 if($picture) {
                     $season->update(['picture' => $picture->store('pictures', 'public')]);
                 }
-
                 return redirect(route('admin.seasons.index', ['id' => $input['serial_id']]))->with('success', Lang::get('admin.season.created'));
             }
         }
+
+
+        $query = $request->query();
         return view('admin.season.create', [
-            'genres' => Genre::get(),
-            'countries' => Country::get(),
+            'season' => Season::get(),
+            'serial' => Serial::find($query['serialId']),
         ]);
     }
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -97,8 +97,6 @@ class SeasonController extends Controller
     {
         return view('admin.season.create', [
                 'season' => Season::find($id),
-                'genres' => Genre::get(),
-                'countries' => Country::get(),
             ]
         );
     }

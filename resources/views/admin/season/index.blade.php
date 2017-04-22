@@ -13,7 +13,7 @@
                             </div>
                             <div class="col-md-2 m-b">
 
-                                <a href="{{ route('admin.season.create') }}" class="btn w-xs btn-success">
+                                <a href="{{ route('admin.season.create', ['serialId' => $serial->id]) }}" class="btn w-xs btn-success">
                                     <i class="fa fa-plus"></i>
                                     <span class="bold">{{ trans('admin.season.button_create_title') }}</span>
                                 </a>
@@ -29,7 +29,7 @@
                                 @foreach($data as $season)
                                     <h2>{{$season->title}}
                                         <span class="col-sm-4 pull-right">
-                                            <a href="{{ route('admin.episode.create', ['id' => $season->id]) }}" class="btn w-xs btn-success pull-left">
+                                            <a href="{{ route('admin.episode.create', ['seasonId' => $season->id, 'serialId' => $serial->id ]) }}" class="btn w-xs btn-success pull-left">
                                                 <i class="fa fa-plus"></i>
                                                 <span class="bold">{{ trans('admin.episode.button_create_title') }}</span>
                                             </a>
@@ -49,7 +49,7 @@
                                         @foreach($season->episods as $episode)
                                             <h4>{{$episode->title}}
                                                 <span class="col-sm-4 pull-right">
-                                                    <a class="btn btn-info pull-left" href="{{ route('admin.episode.edit', $episode->id) }}" title="{{ trans('admin.episode.edit') }}">
+                                                    <a class="btn btn-info pull-left" href="{{ route('admin.episode.edit', ['id'=>$episode->id, 'seasonId' => $season->id, 'serialId' => $serial->id ]) }}" title="{{ trans('admin.episode.edit') }}">
                                                         <i class="fa fa-paste"></i>
                                                     </a>
                                                     <form method="POST" action="{{ route('admin.episode.delete', $episode->id) }}">
