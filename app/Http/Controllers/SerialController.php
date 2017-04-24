@@ -81,6 +81,8 @@ class SerialController extends Controller
         }
         return view('admin.serial.create', [
             'serial' => Serial::get(),
+            'genres' => Genre::get(),
+            'countries' => Country::get(),
         ]);
     }
 
